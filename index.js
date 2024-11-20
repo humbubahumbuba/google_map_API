@@ -1,17 +1,27 @@
-// This example adds a marker to indicate the position of Bondi Beach in Sydney,
-// Australia.
-function initMap() {
-  const map = new google.maps.Map(document.getElementById('map'), {
+// Initialize and add the map
+let map;
+
+async function initMap() {
+  // The location of Uluru
+  const position = { lat: -25.344, lng: 131.031 };
+  // Request needed libraries.
+  //@ts-ignore
+  const { Map } = await google.maps.importLibrary('maps');
+  const { AdvancedMarkerElement } = await google.maps.importLibrary('marker');
+
+  // The map, centered at Uluru
+  map = new Map(document.getElementById('map'), {
     zoom: 4,
-    center: { lat: -33, lng: 151 },
+    center: position,
+    mapId: 'DEMO_MAP_ID',
   });
-  const image =
-    'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
-  const beachMarker = new google.maps.Marker({
-    position: { lat: -33.89, lng: 151.274 },
-    map,
-    icon: image,
+
+  // The marker, positioned at Uluru
+  const marker = new AdvancedMarkerElement({
+    map: map,
+    position: position,
+    title: 'Uluru',
   });
 }
 
-window.initMap = initMap;
+initMap();
