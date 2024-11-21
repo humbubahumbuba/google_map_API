@@ -13,7 +13,7 @@ async function initMap() {
 
   // The map, centered at Kiev
   map = new Map(document.getElementById('map'), {
-    zoom: 10,
+    zoom: 7,
     center: position,
     mapId: 'DEMO_MAP_ID',
   });
@@ -52,16 +52,16 @@ async function initMap() {
 
   // Create an info window to share between markers.
   const infoWindow = new google.maps.InfoWindow();
-  const antennasCircle = new google.maps.Circle({
-    strokeColor: '#FF0000',
-    strokeOpacity: 0.4,
-    strokeWeight: 2,
-    fillColor: '#42c5f5',
-    fillOpacity: 0.2,
-    map: map,
-    center: position,
-    radius: 150000,
-  });
+  // const antennasCircle = new google.maps.Circle({
+  //   strokeColor: '#FF0000',
+  //   strokeOpacity: 0.4,
+  //   strokeWeight: 2,
+  //   fillColor: '#42c5f5',
+  //   fillOpacity: 0.2,
+  //   map: map,
+  //   center: position,
+  //   radius: 150000,
+  // });
 
   // Create the markers.
   serviceStops.forEach(([position, title], i) => {
@@ -78,6 +78,17 @@ async function initMap() {
       infoWindow.close();
       infoWindow.setContent(marker.getTitle());
       infoWindow.open(marker.getMap(), marker);
+    });
+
+    const antennasCircle = new google.maps.Circle({
+      strokeColor: '#FF0000',
+      strokeOpacity: 0.4,
+      strokeWeight: 2,
+      fillColor: '#42c5f5',
+      fillOpacity: 0.2,
+      map: map,
+      center: position,
+      radius: 150000,
     });
   });
 }
