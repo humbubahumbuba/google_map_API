@@ -1,6 +1,7 @@
 // Initialize and add the map
 let map;
 
+
 async function initMap() {
   // The location of Kiev
   const position = { lat: 50.44437317321182, lng: 30.514200644520805 };
@@ -24,6 +25,9 @@ async function initMap() {
     position: position,
     title: 'Kiev',
   });
+
+
+  // const serviceStops = JSON.parse(data.json);
 
   const serviceStops = [
     [{ lat: 50.429147, lng: 30.560207 }, 'СТО Мастер, 0673334433,Харківське шосе 150'],
