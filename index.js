@@ -1,6 +1,6 @@
+
 // Initialize and add the map
 let map;
-
 
 async function initMap() {
   // The location of Kiev
@@ -26,8 +26,12 @@ async function initMap() {
     title: 'Kiev',
   });
 
+// const serviceStops = require(JSON.parse((serviceStops).json));
+// console.log(serviceStops);
 
-  // const serviceStops = JSON.parse(data.json);
+
+
+
 
   const serviceStops = [
     [{ lat: 50.429147, lng: 30.560207 }, 'СТО Мастер, 0673334433,Харківське шосе 150'],
@@ -52,6 +56,7 @@ async function initMap() {
       optimized: false,
     });
 
+
     // Add a click listener for each marker, and set up the info window.
     marker.addListener('click', () => {
       infoWindow.close();
@@ -60,9 +65,9 @@ async function initMap() {
     });
 
     const antennasCircle = new google.maps.Circle({
-      strokeColor: '#FF0000',
-      strokeOpacity: 0.4,
-      strokeWeight: 2,
+      strokeColor: '#3483eb',
+      strokeOpacity: 0.9,
+      strokeWeight: 0.5,
       fillColor: '#42c5f5',
       fillOpacity: 0.2,
       map: map,
