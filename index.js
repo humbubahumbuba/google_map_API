@@ -1,6 +1,8 @@
 
 // Initialize and add the map
 let map;
+let service;
+let infowindow;
 
 async function initMap() {
   // The location of Kiev
@@ -12,12 +14,18 @@ async function initMap() {
     'marker'
   );
 
+  infowindow = new google.maps.InfoWindow();
+
+
   // The map, centered at Kiev
   map = new Map(document.getElementById('map'), {
     zoom: 7,
     center: position,
     mapId: 'DEMO_MAP_ID',
   });
+
+
+
 
   // The marker, positioned at Kiev
   const marker = new AdvancedMarkerElement({
@@ -26,11 +34,8 @@ async function initMap() {
     title: 'Kiev',
   });
 
-// const serviceStops = require(JSON.parse((serviceStops).json));
+// const serviceStops = require(JSON.parse((ServiceStops).json));
 // console.log(serviceStops);
-
-
-
 
 
   const serviceStops = [
@@ -43,7 +48,7 @@ async function initMap() {
   ];
 
   // Create an info window to share between markers.
-  const infoWindow = new google.maps.InfoWindow();
+
 
   // Create the markers.
   serviceStops.forEach(([position, title], i) => {
@@ -57,12 +62,17 @@ async function initMap() {
     });
 
 
+
+
+
     // Add a click listener for each marker, and set up the info window.
     marker.addListener('click', () => {
       infoWindow.close();
       infoWindow.setContent(marker.getTitle());
       infoWindow.open(marker.getMap(), marker);
     });
+
+
 
     const antennasCircle = new google.maps.Circle({
       strokeColor: '#3483eb',
@@ -74,6 +84,8 @@ async function initMap() {
       center: position,
       radius: 150000,
     });
+
+
   });
 }
 
