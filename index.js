@@ -34,7 +34,11 @@ async function initMap() {
     title: 'Kiev',
   });
 
+<<<<<<< Updated upstream
 // const serviceStops = require(JSON.parse((ServiceStops).json));
+=======
+// const serviceStops = require(serviceStops.json);
+>>>>>>> Stashed changes
 // console.log(serviceStops);
 
 
