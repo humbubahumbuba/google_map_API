@@ -1,7 +1,7 @@
 
 // Initialize and add the map
 let map;
-let service;
+// let service;
 let infowindow;
 
 async function initMap() {
@@ -34,11 +34,7 @@ async function initMap() {
     title: 'Kiev',
   });
 
-<<<<<<< Updated upstream
-// const serviceStops = require(JSON.parse((ServiceStops).json));
-=======
 // const serviceStops = require(serviceStops.json);
->>>>>>> Stashed changes
 // console.log(serviceStops);
 
 
@@ -52,7 +48,7 @@ async function initMap() {
   ];
 
   // Create an info window to share between markers.
-
+  infowindow = new google.maps.InfoWindow();
 
   // Create the markers.
   serviceStops.forEach(([position, title], i) => {
@@ -71,9 +67,9 @@ async function initMap() {
 
     // Add a click listener for each marker, and set up the info window.
     marker.addListener('click', () => {
-      infoWindow.close();
-      infoWindow.setContent(marker.getTitle());
-      infoWindow.open(marker.getMap(), marker);
+      infowindow.close();
+      infowindow.setContent(marker.getTitle());
+      infowindow.open(marker.getMap(), marker);
     });
 
 
@@ -94,3 +90,5 @@ async function initMap() {
 }
 
 initMap();
+
+
